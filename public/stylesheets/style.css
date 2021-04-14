@@ -1,0 +1,13 @@
+.title  {
+  display: flex;
+  justify-content: center;
+}
+
+.addBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+h2 {
+  color: darkblue;
+}
