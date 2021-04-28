@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row mt-5 title">
-    <h2>寂人甜食 POS</h2>
+    <h2>POS System</h2>
   </div>
   <div class="row addBtn">
     <form action="/new" method="get">
@@ -9,75 +9,84 @@
       </button>
     </form>
   </div>
-  {{!-- <div class="row col-3">
-    <div class="card mb-3">
-      <div class="card-body pt-3 pr-3">
-        <div class="text-right">
-          <span data-alpha-pos="delete-drink">X</span>
-        </div>
-        <h6 class="car-title mb-1">Black Tea</h6>
-        <div class="card-text">Less Ice</div>
-        <div class="card-text">Half Sugar</div>
-      </div>
-      <div class="card-footer text-right py-2">
-        <div class="card-text text-muted">
-          $<span data-drink-price>30</span>
-        </div>
-      </div>
-    </div>
-  </div> --}}
-  {{!-- <div class="row"> --}}
+  {{!-- <form action="/shoppingList" method="post"> --}}
     <div class="row">
       <h4>Cake</h4>
     </div>
     <div class="row mt-3 col-12" id="menu">
       {{#each cakeItem}}
-      <div class="card border-dark mb-3 ml-3" style="width: 15rem;">
-        <div class="card-body text-dark">
-          <h5 class="card-title">{{this.name}}</h5>
-          <p class="card-text">${{this.amount}}</p>
+      <div class="card border-dark mb-3 ml-3" style="width: 18rem;">
+        <div class="card-body text-dark" style="display: flex; justify-content:space-around">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-outline-dark" style="border: none;"><input type="radio" name="product"
+                value="{{this.name}}" data-id="{{this._id}}">{{this.name}}</label>
+            {{!-- <label for="price" class="btn btn-outline-dark"></label> --}}
+          </div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons" style="position:static">
+            <label class="btn btn-outline-secondary" style="border: none;"><input type="radio" name="price"
+                value="{{this.amount}}">${{this.amount}}</label>
+          </div>
+          {{!-- <h5 class="card-title">{{this.name}}</h5> --}}
+          {{!-- <p class="card-text">${{this.amount}}</p> --}}
+
           <div style="display: flex; justify-content:flex-end">
-            <button type="submit" class="btn btn-info plusBtn" data-id="{{this.id}}">+</a>
+            {{!-- <button href="#" class="btn btn-info plusBtn">+</button> --}}
           </div>
         </div>
       </div>
       {{/each}}
     </div>
 
-    {{!-- <div class="row mt-3">
+    <div class="row mt-3">
       <h4>Drink</h4>
     </div>
     <div class="row mt-3 col-12">
       {{#each drinkItem}}
-      <div class="card border-dark mb-3 ml-3" style="width: 15rem;">
-        <div class="card-body text-dark">
-          <h5 class="card-title">{{this.name}}</h5>
-          <p class="card-text">${{this.amount}}</p>
+      <div class="card border-dark mb-3 ml-3" style="width: 13rem;">
+        <div class="card-body text-dark" style="display: flex; justify-content:space-around">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-outline-dark" style="border: none;"><input type="radio" name="product"
+                value="{{this.name}}" data-id="{{this._id}}">{{this.name}}</label>
+            {{!-- <label for="price" class="btn btn-outline-dark"></label> --}}
+          </div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons" style="position:static">
+            <label class="btn btn-outline-secondary" style="border: none;"><input type="radio" name="price"
+                value="{{this.amount}}">${{this.amount}}</label>
+          </div>
+          {{!-- <h5 class="card-title">{{this.name}}</h5> --}}
+          {{!-- <p class="card-text">${{this.amount}}</p> --}}
+
           <div style="display: flex; justify-content:flex-end">
-            <a href="#" class="btn btn-info plusBtn" data-id="{{this.id}}">+</a>
+            {{!-- <button href="#" class="btn btn-info plusBtn">+</button> --}}
           </div>
         </div>
       </div>
       {{/each}}
-    </div> --}}
-    {{!--
-  </div> --}}
-
-  <div class="row mt-3">
-    <h4>桌次</h4>
-  </div>
-  <section class="table mt-3">
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-outline-dark mr-3"><input type="radio" name="table" value="1"> 1</label>
-      <label class="btn btn-outline-dark mr-3"><input type="radio" name="table" value="2"> 2</label>
-      <label class="btn btn-outline-dark mr-3"><input type="radio" name="table" value="3"> 3</label>
-      <label class="btn btn-outline-dark mr-3"><input type="radio" name="table" value="4"> 4</label>
-      <label class="btn btn-outline-dark mr-3"><input type="radio" name="table" value="5"> 5</label>
-      <label class="btn btn-outline-dark mr-3"><input type="radio" name="table" value="6"> 6</label>
     </div>
-  </section>
+</div>
 
-
+<div class="container" style="display:flex;">
+  <div class="row">
+    <h4 class="mt-2">桌次</h4>
+    <section class="table mt-3">
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-outline-dark mr-3"><input type="radio" name="table" value="1"> 1</label>
+        <label class="btn btn-outline-dark mr-3"><input type="radio" name="table" value="2"> 2</label>
+        <label class="btn btn-outline-dark mr-3"><input type="radio" name="table" value="3"> 3</label>
+        <label class="btn btn-outline-dark mr-3"><input type="radio" name="table" value="4"> 4</label>
+        <label class="btn btn-outline-dark mr-3"><input type="radio" name="table" value="5"> 5</label>
+        <label class="btn btn-outline-dark mr-3"><input type="radio" name="table" value="6"> 6</label>
+      </div>
+    </section>
+  </div>
+  {{!-- <div class="row mt-2">
+    <div>
+      <h4>數量</h4>
+    </div>
+    <div>
+      <input class="ml-3" type="radio" name="quantity" id="quantity" style="width: 50px;height:35px;" value="6">
+    </div>
+  </div> --}}
 </div>
 
 <div class="container">
@@ -92,25 +101,28 @@
           <th class="headTotal">總計</th>
           <th class="headAmount">金額</th>
           <th class="headTable">桌次</th>
+          <th class="headDelete">刪除</th>
         </tr>
       </thead>
+
       <tbody id="showList">
         {{!-- <tr style="text-align: center;">
           <td><input type="checkbox" name="item" id="item" style="width: 20px; height:20px;"></td>
-          <td class="checkName">焦糖烏龍戚風</td>
+          <td class="checkName">{{orderCakeName}}</td>
           <td class="checkNumbers">
             <i class="fa fa-plus-circle up fa-lg"></i>
             <i class="fa fa-minus-circle down fa-lg"></i>
           </td>
-          <td class="checkTotal">1</td>
-          <td class="checkAmount">$150</td>
+          <td class="checkTotal">{{this.name}}</td>
+          <td class="checkAmount">${{orderAmount}}</td>
           <td class="checkTable">4</td>
         </tr> --}}
       </tbody>
+
     </table>
   </div>
   <div style="display: flex;justify-content:space-between">
-    <button type="submit" class="btn btn-danger">Check</button>
+    <button type="submit" class="btn btn-info" data-pos="addProductBtn">Add</button>
     <h3 class="total" style="color: darkred;">總金額: $200</h3>
   </div>
 </div>
@@ -121,8 +133,136 @@
   </form>
 </div>
 
-<script src="/javascript/main.js"></script>
+<script>
+  function Order(name, price, table, quantity) {
+    this.name = name;
+    this.price = price;
+    this.table = table;
+    this.quantity = quantity
+  }
 
+  Order.prototype.price = function () {
+    switch (this.name) {
+      case "鐵觀音巴斯克":
+        return 180
+      case "手沖咖啡":
+        return 170
+      case "綜合水果戚風":
+        return 160
+      case "焦糖烏龍戚風":
+      case "紅茶香蕉巧克力戚風":
+        return 150;
+      case "紅豆抹茶捲":
+      case "蜜瓜焙茶戚風":
+      case "芝麻鳳梨四季春戚風":
+        return 140;
+      case "柚香氣泡飲":
+      case "莓果氣泡飲":
+        return 130
+      case "百香檸檬糖霜蛋糕":
+      case "鳳梨冰茶":
+        return 120
+      case "紅茶":
+      case "綠茶":
+        return 110
+      default:
+        alert('no this item')
+    }
+  }
+
+  function POS() { }
+  let newPos = new POS()
+
+  POS.prototype.getValue = function (inputName) {
+    let selectedOption = ''
+    document.querySelectorAll(`input[name="${inputName}"]`).forEach(function (item) {
+      if (item.checked) {
+        selectedOption = item.value
+      }
+    })
+    return selectedOption
+  }
+
+  POS.prototype.controller = function (item) {
+    let orderHTML =
+      `
+        <tr style="text-align: center;">
+          <td><input type="checkbox" name="item" id="item" style="width: 20px; height:20px;"></td>
+          <td class="checkName">${item.name}</td>
+          <td class="checkNumbers">
+            <i class="fa fa-plus-circle up fa-lg"></i>
+            <i class="fa fa-minus-circle down fa-lg"></i>
+          </td>
+          <td class="checkTotal">1</td>
+          <td class="checkAmount">$ ${item.price}</td>
+          <td class="checkTable">${item.table}</td>
+          <td class="checkDelete btn"><i class="fas fa-trash-alt" data-delete="delete"></i></td>
+        </tr>
+    `
+    showList.insertAdjacentHTML('beforeend', orderHTML)
+  }
+
+  POS.prototype.deleteOrder = function (target) {
+    target.remove()
+  }
+
+  const showList = document.querySelector('#showList')
+  const addProductBtn = document.querySelector('[data-pos="addProductBtn"]')
+  let cartItems = []
+
+  function shoppingList(event) {
+    const id = event.target.dataset.id
+
+  }
+
+  addProductBtn.addEventListener('click', function controller() {
+    const name = newPos.getValue("product")
+    const table = newPos.getValue("table")
+    const price = newPos.getValue("price")
+    const quantity = newPos.getValue("quantity")
+    if (!name) {
+      alert('Please choose one')
+    }
+
+    let order = new Order(name, price, table, quantity)
+
+    newPos.controller(order)
+  })
+
+
+  showList.addEventListener('click', function (event) {
+    let isDeleteButton = event.target.matches('[data-delete="delete"]')
+    if (!isDeleteButton) {
+      return
+    }
+    newPos.deleteOrder(event.target.parentElement.parentElement)
+  })
+
+
+
+    // addProductBtn.addEventListener('click', function controller(event) {
+    //  console.log(event.target.dataset.price)
+    //  let orderHTML =
+  //  `
+  //    <tbody id="showList">
+  //      <tr style="text-align: center;">
+  //        <td><input type="checkbox" name="item" id="item" style="width: 20px; height:20px;"></td>
+  //        <td class="checkName">${event.target.value}</td>
+  //        <td class="checkNumbers">
+  //          <i class="fa fa-plus-circle up fa-lg"></i>
+  //         <i class="fa fa-minus-circle down fa-lg"></i>
+  //        </td>
+  //        <td class="checkTotal">1</td>
+  //       <td class="checkAmount">$ ${event.target.dataset.price}</td>
+  //        <td class="checkTable">4</td>
+  //      </tr>
+  //    </tbody>
+  //  `
+  //  document.querySelector('#showList').innerHTML += orderHTML
+  // }) 
+</script>
+
+<script src="/javascript/main.js"></script>
 
 {{!-- <div class="container">
   <form action="/detail">

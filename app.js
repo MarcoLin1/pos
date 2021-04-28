@@ -20,7 +20,7 @@ db.once('open', () => {
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: 'hbs' }))
 app.set('view engine', 'hbs')
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
@@ -50,6 +50,34 @@ app.get('/', (req, res) => {
     })
     .catch(error => console.log(error))
 
+})
+
+app.post('/shoppingList', async (req, res) => {
+  const cake = Cake.aggregate([
+    {
+      $project: {
+        name: 1,
+        amount: 1,
+        id: 1
+      }
+    }
+  ])
+
+  const drink = Drink.aggregate([
+    {
+      $project: {
+        name: 1,
+        amount: 1,
+        id: 1
+      }
+    }
+  ])
+  const orderCake = await Cake.findOne({ name: req.body.cake })
+  Promise.all(([cake, drink, orderCake]))
+    .then(([cakeItem, drinkItem, orderCake]) => {
+      res.render('index', { cakeItem: cakeItem, drinkItem: drinkItem, orderCakeName: orderCake.name, orderAmount: orderCake.amount })
+    })
+    .catch(error => console.log(error))
 
 })
 
