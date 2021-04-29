@@ -9,60 +9,47 @@
       </button>
     </form>
   </div>
-  {{!-- <form action="/shoppingList" method="post"> --}}
-    <div class="row">
-      <h4>Cake</h4>
-    </div>
-    <div class="row mt-3 col-12" id="menu">
-      {{#each cakeItem}}
-      <div class="card border-dark mb-3 ml-3" style="width: 18rem;">
-        <div class="card-body text-dark" style="display: flex; justify-content:space-around">
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-outline-dark" style="border: none;"><input type="radio" name="product"
-                value="{{this.name}}" data-id="{{this._id}}">{{this.name}}</label>
-            {{!-- <label for="price" class="btn btn-outline-dark"></label> --}}
-          </div>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons" style="position:static">
-            <label class="btn btn-outline-secondary" style="border: none;"><input type="radio" name="price"
-                value="{{this.amount}}">${{this.amount}}</label>
-          </div>
-          {{!-- <h5 class="card-title">{{this.name}}</h5> --}}
-          {{!-- <p class="card-text">${{this.amount}}</p> --}}
-
-          <div style="display: flex; justify-content:flex-end">
-            {{!-- <button href="#" class="btn btn-info plusBtn">+</button> --}}
-          </div>
+  <div class="row">
+    <h4>Cake</h4>
+  </div>
+  <div class="row mt-3 col-12" id="menu">
+    {{#each cakeItem}}
+    <div class="card border-dark mb-3 ml-3" style="width: 18rem;">
+      <div class="card-body text-dark" style="display: flex; justify-content:space-around">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons" data-id="{{this._id}}">
+          <label class="btn btn-outline-dark" style="border: none;"><input type="radio" name="product"
+              value="{{this.name}}" data-id="{{this._id}}">{{this.name}}</label>
+        </div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons" style="position:static">
+          <label class="btn btn-outline-secondary" style="border: none;"><input type="radio" name="price"
+              value="{{this.amount}}">${{this.amount}}</label>
         </div>
       </div>
-      {{/each}}
     </div>
+    {{/each}}
+  </div>
 
-    <div class="row mt-3">
-      <h4>Drink</h4>
-    </div>
-    <div class="row mt-3 col-12">
-      {{#each drinkItem}}
-      <div class="card border-dark mb-3 ml-3" style="width: 13rem;">
-        <div class="card-body text-dark" style="display: flex; justify-content:space-around">
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-outline-dark" style="border: none;"><input type="radio" name="product"
-                value="{{this.name}}" data-id="{{this._id}}">{{this.name}}</label>
-            {{!-- <label for="price" class="btn btn-outline-dark"></label> --}}
-          </div>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons" style="position:static">
-            <label class="btn btn-outline-secondary" style="border: none;"><input type="radio" name="price"
-                value="{{this.amount}}">${{this.amount}}</label>
-          </div>
-          {{!-- <h5 class="card-title">{{this.name}}</h5> --}}
-          {{!-- <p class="card-text">${{this.amount}}</p> --}}
-
-          <div style="display: flex; justify-content:flex-end">
-            {{!-- <button href="#" class="btn btn-info plusBtn">+</button> --}}
-          </div>
+  <div class="row mt-3">
+    <h4>Drink</h4>
+  </div>
+  <div class="row mt-3 col-12">
+    {{#each drinkItem}}
+    <div class="card border-dark mb-3 ml-3" style="width: 13rem;">
+      <div class="card-body text-dark" style="display: flex; justify-content:space-around">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons" data-id="{{this._id}}">
+          <label class="btn btn-outline-dark" style="border: none;"><input type="radio" name="product"
+              value="{{this.name}}" data-id="{{this._id}}">{{this.name}}</label>
+        </div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons" style="position:static">
+          <label class="btn btn-outline-secondary" style="border: none;"><input type="radio" name="price"
+              value="{{this.amount}}">${{this.amount}}</label>
+        </div>
+        <div style="display: flex; justify-content:flex-end">
         </div>
       </div>
-      {{/each}}
     </div>
+    {{/each}}
+  </div>
 </div>
 
 <div class="container" style="display:flex;">
@@ -79,14 +66,19 @@
       </div>
     </section>
   </div>
-  {{!-- <div class="row mt-2">
-    <div>
-      <h4>數量</h4>
-    </div>
-    <div>
-      <input class="ml-3" type="radio" name="quantity" id="quantity" style="width: 50px;height:35px;" value="6">
-    </div>
-  </div> --}}
+  <div class="row">
+    <h4 class="mt-2">數量</h4>
+    <section class="table mt-3">
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-outline-dark mr-3"><input type="radio" name="quantity" value="1"> 1</label>
+        <label class="btn btn-outline-dark mr-3"><input type="radio" name="quantity" value="2"> 2</label>
+        <label class="btn btn-outline-dark mr-3"><input type="radio" name="quantity" value="3"> 3</label>
+        <label class="btn btn-outline-dark mr-3"><input type="radio" name="quantity" value="4"> 4</label>
+        <label class="btn btn-outline-dark mr-3"><input type="radio" name="quantity" value="5"> 5</label>
+        <label class="btn btn-outline-dark mr-3"><input type="radio" name="quantity" value="6"> 6</label>
+      </div>
+    </section>
+  </div>
 </div>
 
 <div class="container">
@@ -98,7 +90,6 @@
           <th class="headCheckbox">Check</th>
           <th class="headName">品名</th>
           <th class="headNumbers">數量</th>
-          <th class="headTotal">總計</th>
           <th class="headAmount">金額</th>
           <th class="headTable">桌次</th>
           <th class="headDelete">刪除</th>
@@ -123,7 +114,10 @@
   </div>
   <div style="display: flex;justify-content:space-between">
     <button type="submit" class="btn btn-info" data-pos="addProductBtn">Add</button>
-    <h3 class="total" style="color: darkred;">總金額: $200</h3>
+    <h3 style="color: darkred;">總金額:$<span class="total-amount">--</span></h3>
+  </div>
+  <div style="display: flex;justify-content:flex-end">
+    <button type="submit" class="btn btn-danger mt-3" id="checkout">Check</button>
   </div>
 </div>
 
@@ -189,12 +183,9 @@
         <tr style="text-align: center;">
           <td><input type="checkbox" name="item" id="item" style="width: 20px; height:20px;"></td>
           <td class="checkName">${item.name}</td>
-          <td class="checkNumbers">
-            <i class="fa fa-plus-circle up fa-lg"></i>
-            <i class="fa fa-minus-circle down fa-lg"></i>
-          </td>
-          <td class="checkTotal">1</td>
-          <td class="checkAmount">$ ${item.price}</td>
+
+          <td class="checkTotal">${item.quantity}</td>
+          <td class="checkAmount">${item.price * item.quantity}</td>
           <td class="checkTable">${item.table}</td>
           <td class="checkDelete btn"><i class="fas fa-trash-alt" data-delete="delete"></i></td>
         </tr>
@@ -206,92 +197,59 @@
     target.remove()
   }
 
+  POS.prototype.checkout = function () {
+    let total = 0
+    return document.querySelectorAll('.checkAmount').forEach(item => total += Number(item.innerText))
+    return total
+  }
+
   const showList = document.querySelector('#showList')
   const addProductBtn = document.querySelector('[data-pos="addProductBtn"]')
-  let cartItems = []
 
-  function shoppingList(event) {
-    const id = event.target.dataset.id
-
-  }
 
   addProductBtn.addEventListener('click', function controller() {
     const name = newPos.getValue("product")
     const table = newPos.getValue("table")
     const price = newPos.getValue("price")
     const quantity = newPos.getValue("quantity")
-    if (!name) {
-      alert('Please choose one')
+    if (!name || !price || !quantity || !table) {
+      alert('Please make sure your shopping list detailed')
+      return
     }
 
     let order = new Order(name, price, table, quantity)
-
     newPos.controller(order)
   })
 
-
   showList.addEventListener('click', function (event) {
+    // 刪除
     let isDeleteButton = event.target.matches('[data-delete="delete"]')
-    if (!isDeleteButton) {
-      return
+    if (isDeleteButton) {
+      newPos.deleteOrder(event.target.parentElement.parentElement)
     }
-    newPos.deleteOrder(event.target.parentElement.parentElement)
+
   })
 
+  let checkout = document.querySelector('#checkout')
+  // 結帳
+  checkout.addEventListener('click', function (event) {
+    showList.remove()
+    alert(`total amount: ${newPos.checkout()}`)
+  })
 
-
-    // addProductBtn.addEventListener('click', function controller(event) {
-    //  console.log(event.target.dataset.price)
-    //  let orderHTML =
-  //  `
-  //    <tbody id="showList">
-  //      <tr style="text-align: center;">
-  //        <td><input type="checkbox" name="item" id="item" style="width: 20px; height:20px;"></td>
-  //        <td class="checkName">${event.target.value}</td>
-  //        <td class="checkNumbers">
-  //          <i class="fa fa-plus-circle up fa-lg"></i>
-  //         <i class="fa fa-minus-circle down fa-lg"></i>
-  //        </td>
-  //        <td class="checkTotal">1</td>
-  //       <td class="checkAmount">$ ${event.target.dataset.price}</td>
-  //        <td class="checkTable">4</td>
-  //      </tr>
-  //    </tbody>
-  //  `
-  //  document.querySelector('#showList').innerHTML += orderHTML
-  // }) 
 </script>
 
-<script src="/javascript/main.js"></script>
+{{!-- // 增修數量功能
+if (event.target.matches('.fa-plus-circle')) {
+let plusNumber = Number(event.target.parentElement.nextElementSibling.innerText) + 1
+let total = Number(event.target.parentElement.nextElementSibling.nextElementSibling.innerText) * plusNumber
 
-{{!-- <div class="container">
-  <form action="/detail">
-    <div class="row mt-4">
-      <h4 class="detail">今日銷售明細</h4>
-      <table class="table mt-3">
-        <thead>
-          <tr class="list" style="text-align: center;">
-            <th class="headCheckbox">Check</th>
-            <th class="headName">品名</th>
-            <th class="headNumbers">數量</th>
-            <th class="headAmount">金額</th>
-            <th class="headTable">桌次</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="text-align: center;">
-            <td><input type="checkbox" name="item" id="item" style="width: 20px; height:20px;"></td>
-            <td class="checkName">焦糖烏龍戚風</td>
-            <td class="checkNumbers">1</td>
-            <td class="checkAmount">$150</td>
-            <td class="checkTable">4</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div>
-      <h3 class="revenue" style="color: darkred;text-align:end">營業額: $200</h3>
-    </div>
-  </form>
+return event.target.parentElement.nextElementSibling.innerText = plusNumber
 
-</div> --}}
+} else if (event.target.matches('.fa-minus-circle')) {
+let minusNumber = Number(event.target.parentElement.nextElementSibling.innerText) - 1
+if (minusNumber <= 0) { return } else { return event.target.parentElement.nextElementSibling.innerText=minusNumber } }
+  --}} {{!-- <td class="checkNumbers">
+  <i class="fa fa-plus-circle up fa-lg"></i>
+  <i class="fa fa-minus-circle down fa-lg"></i>
+  </td> --}}
