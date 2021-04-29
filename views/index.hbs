@@ -14,15 +14,11 @@
   </div>
   <div class="row mt-3 col-12" id="menu">
     {{#each cakeItem}}
-    <div class="card border-dark mb-3 ml-3" style="width: 18rem;">
-      <div class="card-body text-dark" style="display: flex; justify-content:space-around">
+    <div class="card border-dark mb-3 ml-3" style="width: 15rem;">
+      <div class="card-body text-dark" style="display: flex; justify-content:center">
         <div class="btn-group btn-group-toggle" data-toggle="buttons" data-id="{{this._id}}">
           <label class="btn btn-outline-dark" style="border: none;"><input type="radio" name="product"
               value="{{this.name}}" data-id="{{this._id}}">{{this.name}}</label>
-        </div>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons" style="position:static">
-          <label class="btn btn-outline-secondary" style="border: none;"><input type="radio" name="price"
-              value="{{this.amount}}">${{this.amount}}</label>
         </div>
       </div>
     </div>
@@ -34,17 +30,11 @@
   </div>
   <div class="row mt-3 col-12">
     {{#each drinkItem}}
-    <div class="card border-dark mb-3 ml-3" style="width: 13rem;">
-      <div class="card-body text-dark" style="display: flex; justify-content:space-around">
+    <div class="card border-dark mb-3 ml-3" style="width: 10rem;">
+      <div class="card-body text-dark" style="display: flex; justify-content:center">
         <div class="btn-group btn-group-toggle" data-toggle="buttons" data-id="{{this._id}}">
           <label class="btn btn-outline-dark" style="border: none;"><input type="radio" name="product"
               value="{{this.name}}" data-id="{{this._id}}">{{this.name}}</label>
-        </div>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons" style="position:static">
-          <label class="btn btn-outline-secondary" style="border: none;"><input type="radio" name="price"
-              value="{{this.amount}}">${{this.amount}}</label>
-        </div>
-        <div style="display: flex; justify-content:flex-end">
         </div>
       </div>
     </div>
@@ -128,9 +118,8 @@
 </div>
 
 <script>
-  function Order(name, price, table, quantity) {
+  function Order(name, table, quantity) {
     this.name = name;
-    this.price = price;
     this.table = table;
     this.quantity = quantity
   }
@@ -167,6 +156,23 @@
   function POS() { }
   let newPos = new POS()
 
+  const addProductBtn = document.querySelector('[data-pos="addProductBtn"]')
+  addProductBtn.addEventListener('click', function controller() {
+    const name = newPos.getValue("product")
+    const table = newPos.getValue("table")
+    const quantity = newPos.getValue("quantity")
+    if (!name || !quantity || !table) {
+      alert('Please make sure your shopping list detailed')
+      return
+    }
+
+    let order = new Order(name, table, quantity)
+    console.log(order)
+    console.log(order.price())
+    newPos.controller(order)
+  })
+
+
   POS.prototype.getValue = function (inputName) {
     let selectedOption = ''
     document.querySelectorAll(`input[name="${inputName}"]`).forEach(function (item) {
@@ -177,49 +183,22 @@
     return selectedOption
   }
 
+  const showList = document.querySelector('#showList')
   POS.prototype.controller = function (item) {
     let orderHTML =
       `
-        <tr style="text-align: center;">
+        <tr class="cartItem" style="text-align: center;">
           <td><input type="checkbox" name="item" id="item" style="width: 20px; height:20px;"></td>
           <td class="checkName">${item.name}</td>
 
           <td class="checkTotal">${item.quantity}</td>
-          <td class="checkAmount">${item.price * item.quantity}</td>
+          <td class="checkAmount" data-price>${item.price() * item.quantity}</td>
           <td class="checkTable">${item.table}</td>
           <td class="checkDelete btn"><i class="fas fa-trash-alt" data-delete="delete"></i></td>
         </tr>
     `
     showList.insertAdjacentHTML('beforeend', orderHTML)
   }
-
-  POS.prototype.deleteOrder = function (target) {
-    target.remove()
-  }
-
-  POS.prototype.checkout = function () {
-    let total = 0
-    return document.querySelectorAll('.checkAmount').forEach(item => total += Number(item.innerText))
-    return total
-  }
-
-  const showList = document.querySelector('#showList')
-  const addProductBtn = document.querySelector('[data-pos="addProductBtn"]')
-
-
-  addProductBtn.addEventListener('click', function controller() {
-    const name = newPos.getValue("product")
-    const table = newPos.getValue("table")
-    const price = newPos.getValue("price")
-    const quantity = newPos.getValue("quantity")
-    if (!name || !price || !quantity || !table) {
-      alert('Please make sure your shopping list detailed')
-      return
-    }
-
-    let order = new Order(name, price, table, quantity)
-    newPos.controller(order)
-  })
 
   showList.addEventListener('click', function (event) {
     // 刪除
@@ -230,12 +209,28 @@
 
   })
 
-  let checkout = document.querySelector('#checkout')
+  POS.prototype.deleteOrder = function (target) {
+    target.remove()
+  }
+
+  let checkoutBtn = document.querySelector('#checkout')
   // 結帳
-  checkout.addEventListener('click', function (event) {
-    showList.remove()
+  checkoutBtn.addEventListener('click', function (event) {
     alert(`total amount: ${newPos.checkout()}`)
+    newPos.clearOrder(showList)
   })
+
+  POS.prototype.checkout = function () {
+    let total = 0
+    document.querySelectorAll('.checkAmount').forEach(item => total += Number(item.innerText))
+    return total
+  }
+
+  POS.prototype.clearOrder = function (target) {
+    target.querySelectorAll('.cartItem').forEach(item => item.remove())
+  }
+
+
 
 </script>
 
