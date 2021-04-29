@@ -2,10 +2,11 @@
 Continue update...
 
 # Features
-1. Click product's name and amount that you can add it on the shopping list
+1. Click product to add product to your order list
 2. Click trash icon that can delete item
+3. Click check button to calculate total amount
 
-![image](https://github.com/MarcoLin1/pos/blob/master/Pos_v1.png)
+![image](https://github.com/MarcoLin1/pos/blob/master/Pos.png)
 ![image](https://github.com/MarcoLin1/pos/blob/master/Pos_v2.png)
 
 # Installation
