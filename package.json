@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "node models/seeds/cakeSeeder.js && node models/seeds/drinkSeeder.js",
+    "seed": "node models/seeds/productSeeder.js",
     "build": "webpack"
   },
   "keywords": [],

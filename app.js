@@ -3,8 +3,7 @@ const app = express()
 const port = 3000
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
-const Cake = require('./models/cake')
-const Drink = require('./models/drink')
+const Product = require('./models/product')
 const mongoose = require('mongoose')
 const db = mongoose.connection
 
@@ -24,22 +23,20 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-  const cake = Cake.aggregate([
-    {
-      $project: {
+  const cake = Product.aggregate([
+    { $match : {category: "cake"}},
+    { $project: {
         name: 1,
-        amount: 1,
-        id: 1
+        amount: 1
       }
     }
   ])
 
-  const drink = Drink.aggregate([
-    {
-      $project: {
-        name: 1,
-        amount: 1,
-        id: 1
+  const drink = Product.aggregate([
+    { $match : {category: "drink"}},
+    { $project: {
+        name: 1, 
+        amount: 1
       }
     }
   ])
@@ -52,33 +49,18 @@ app.get('/', (req, res) => {
 
 })
 
-app.post('/shoppingList', async (req, res) => {
-  const cake = Cake.aggregate([
-    {
-      $project: {
-        name: 1,
-        amount: 1,
-        id: 1
-      }
-    }
-  ])
+app.get('/new', (req, res) => {
+  res.render('new')
+})
 
-  const drink = Drink.aggregate([
-    {
-      $project: {
-        name: 1,
-        amount: 1,
-        id: 1
-      }
-    }
-  ])
-  const orderCake = await Cake.findOne({ name: req.body.cake })
-  Promise.all(([cake, drink, orderCake]))
-    .then(([cakeItem, drinkItem, orderCake]) => {
-      res.render('index', { cakeItem: cakeItem, drinkItem: drinkItem, orderCakeName: orderCake.name, orderAmount: orderCake.amount })
-    })
+app.post('/new', (req, res) => {
+  return Product.create({
+    name: req.body.name,
+    category: req.body.category,
+    amount: req.body.price
+  })
+    .then(() => res.redirect('/'))
     .catch(error => console.log(error))
-
 })
 
 app.listen(port, () => {

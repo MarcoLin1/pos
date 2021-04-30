@@ -9,10 +9,6 @@ const drinkSchema = new Schema({
     type: Number,
     require: true
   },
-  id: {
-    type: Number,
-    require: true
-  }
 })
 
 module.exports = mongoose.model('Drink', drinkSchema)

@@ -1,7 +1,11 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const cakeSchema = new Schema({
+const productSchema = new Schema({
   name: {
+    type: String,
+    require: true
+  },
+  category: {
     type: String,
     require: true
   },
@@ -9,10 +13,6 @@ const cakeSchema = new Schema({
     type: Number,
     require: true
   },
-  id: {
-    type: Number,
-    require: true
-  }
 })
 
-module.exports = mongoose.model('Cake', cakeSchema)
+module.exports = mongoose.model('Cake', productSchema)
