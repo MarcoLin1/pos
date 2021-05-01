@@ -12,32 +12,64 @@
   <div class="row">
     <h4>Cake</h4>
   </div>
-  <div class="row mt-3 col-12" id="menu">
+  <div class="row mt-3 col-12" id="menu" data-toggle="buttons">
     {{#each cakeItem}}
-    <div class="card border-dark mb-3 ml-3" style="width: 15rem;">
+    <div class="card mr-3 mb-3" style="width: 15rem;">
+      <img src="https://pic.pimg.tw/o83528/1609506909-2425967015-g_wn.jpg" class="card-img-top" alt="cake"
+        style="display:block;margin:auto;max-height:90%;">
+      <div class="text-right mt-2 mr-2">
+        <span data-pos="delete-product"><i class="fas fa-trash-alt fa-sm" style="padding-right: 8px;"></i></span>
+      </div>
+      <div class="card-body"
+        style="display:flex;align-items:center;justify-content:space-around;padding:2px 8px 8px 8px;">
+        <div class="btn-group btn-group-toggle" data-id="{{this._id}}">
+          <label class="btn btn-outline-dark" style="border: none;width:120%;"><input type="radio" name="product"
+              value="{{this.name}}" data-id="{{this._id}}">{{this.name}}</label>
+        </div>
+        <span class="text-center">$ {{this.amount}}</span>
+      </div>
+    </div>
+    {{!-- <div class="card border-dark mb-3 ml-3" style="width: 15rem;">
       <div class="card-body text-dark" style="display: flex; justify-content:center">
         <div class="btn-group btn-group-toggle" data-toggle="buttons" data-id="{{this._id}}">
           <label class="btn btn-outline-dark" style="border: none;"><input type="radio" name="product"
               value="{{this.name}}" data-id="{{this._id}}">{{this.name}}</label>
         </div>
       </div>
-    </div>
+    </div> --}}
     {{/each}}
   </div>
 
   <div class="row mt-3">
     <h4>Drink</h4>
   </div>
-  <div class="row mt-3 col-12">
+  <div class="row mt-3 col-12" data-toggle="buttons">
     {{#each drinkItem}}
-    <div class="card border-dark mb-3 ml-3" style="width: 10rem;">
+    <div class="card mr-3 mb-3" style="width: 15rem;">
+      <img
+        src="https://cdn.walkerland.com.tw/images/upload/poi/p107503/m91611/4252644e03c69f9fd842abd30352cc276973fece.jpg"
+        class="card-img-top" alt="cake" style="display:block;margin:auto;max-height:90%;">
+      <div class="text-right mt-2 mr-2">
+        <span data-pos="delete-product"><i class="fas fa-trash-alt fa-sm" style="padding-right: 8px;"></i></span>
+      </div>
+      <div class="card-body"
+        style="display:flex;align-items:center;justify-content:space-around;padding:2px 8px 8px 8px;">
+        <div class="btn-group btn-group-toggle" data-id="{{this._id}}">
+          <label class="btn btn-outline-dark" style="border: none;width:120%;"><input type="radio" name="product"
+              value="{{this.name}}" data-id="{{this._id}}">{{this.name}}</label>
+        </div>
+        <span class="text-center">$ {{this.amount}}</span>
+      </div>
+    </div>
+
+    {{!-- <div class="card border-dark mb-3 ml-3" style="width: 10rem;">
       <div class="card-body text-dark" style="display: flex; justify-content:center">
         <div class="btn-group btn-group-toggle" data-toggle="buttons" data-id="{{this._id}}">
           <label class="btn btn-outline-dark" style="border: none;"><input type="radio" name="product"
               value="{{this.name}}" data-id="{{this._id}}">{{this.name}}</label>
         </div>
       </div>
-    </div>
+    </div> --}}
     {{/each}}
   </div>
 </div>
@@ -46,26 +78,32 @@
   <div class="row">
     <h4 class="mt-2">桌次</h4>
     <section class="table mt-3">
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-outline-dark mr-3"><input type="radio" name="table" value="1"> 1</label>
-        <label class="btn btn-outline-dark mr-3"><input type="radio" name="table" value="2"> 2</label>
-        <label class="btn btn-outline-dark mr-3"><input type="radio" name="table" value="3"> 3</label>
-        <label class="btn btn-outline-dark mr-3"><input type="radio" name="table" value="4"> 4</label>
-        <label class="btn btn-outline-dark mr-3"><input type="radio" name="table" value="5"> 5</label>
-        <label class="btn btn-outline-dark mr-3"><input type="radio" name="table" value="6"> 6</label>
+      <div class="btn-group-toggle tableButtons" data-toggle="buttons">
+        <label class="btn btn-outline-secondary mr-1 tableNumbers"><input type="radio" name="table" value="1"> 1</label>
+        <label class="btn btn-outline-secondary mr-1 tableNumbers"><input type="radio" name="table" value="2"> 2</label>
+        <label class="btn btn-outline-secondary mr-1 tableNumbers"><input type="radio" name="table" value="3"> 3</label>
+        <label class="btn btn-outline-secondary mr-1 tableNumbers"><input type="radio" name="table" value="4"> 4</label>
+        <label class="btn btn-outline-secondary mr-1 tableNumbers"><input type="radio" name="table" value="5"> 5</label>
+        <label class="btn btn-outline-secondary mr-1 tableNumbers"><input type="radio" name="table" value="6"> 6</label>
       </div>
     </section>
   </div>
   <div class="row">
     <h4 class="mt-2">數量</h4>
     <section class="table mt-3">
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-outline-dark mr-3"><input type="radio" name="quantity" value="1"> 1</label>
-        <label class="btn btn-outline-dark mr-3"><input type="radio" name="quantity" value="2"> 2</label>
-        <label class="btn btn-outline-dark mr-3"><input type="radio" name="quantity" value="3"> 3</label>
-        <label class="btn btn-outline-dark mr-3"><input type="radio" name="quantity" value="4"> 4</label>
-        <label class="btn btn-outline-dark mr-3"><input type="radio" name="quantity" value="5"> 5</label>
-        <label class="btn btn-outline-dark mr-3"><input type="radio" name="quantity" value="6"> 6</label>
+      <div class="btn-group-toggle quantityButtons" data-toggle="buttons">
+        <label class="btn btn-outline-info mr-1 quantityNumbers"><input type="radio" name="quantity" value="1">
+          1</label>
+        <label class="btn btn-outline-info mr-1 quantityNumbers"><input type="radio" name="quantity" value="2">
+          2</label>
+        <label class="btn btn-outline-info mr-1 quantityNumbers"><input type="radio" name="quantity" value="3">
+          3</label>
+        <label class="btn btn-outline-info mr-1 quantityNumbers"><input type="radio" name="quantity" value="4">
+          4</label>
+        <label class="btn btn-outline-info mr-1 quantityNumbers"><input type="radio" name="quantity" value="5">
+          5</label>
+        <label class="btn btn-outline-info mr-1 quantityNumbers"><input type="radio" name="quantity" value="6">
+          6</label>
       </div>
     </section>
   </div>
@@ -103,11 +141,11 @@
     </table>
   </div>
   <div style="display: flex;justify-content:space-between">
-    <button type="submit" class="btn btn-info" data-pos="addProductBtn">Add</button>
+    <button type="submit" class="btn btn-outline-warning" data-pos="addProductBtn">Add</button>
     <h3 style="color: darkred;">總金額:$<span class="totalAmount">--</span></h3>
   </div>
   <div style="display: flex;justify-content:flex-end">
-    <button type="submit" class="btn btn-danger mt-3" id="checkout">Check</button>
+    <button type="submit" class="btn btn-outline-danger mt-3" id="checkout">Check</button>
   </div>
 </div>
 

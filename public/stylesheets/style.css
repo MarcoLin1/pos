@@ -1,4 +1,4 @@
-.title  {
+.title {
   display: flex;
   justify-content: center;
 }
@@ -10,4 +10,19 @@
 
 h2 {
   color: darkblue;
+}
+
+[data-pos="delete-product"] {
+  display: inline-block;
+  text-align: center;
+  color: #999;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  line-height: 1;
+}
+
+[data-pos="delete-product"]:hover {
+  color: #333;
 }
