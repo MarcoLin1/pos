@@ -13,6 +13,9 @@ const productSchema = new Schema({
     type: Number,
     require: true
   },
+  url: {
+    type: String
+  }
 })
 
 module.exports = mongoose.model('Cake', productSchema)

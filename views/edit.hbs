@@ -1,31 +1,32 @@
-<h2 class="text-center mt-5">新增商品</h2>
-<form action="/new" method="POST">
+<h2 class="text-center mt-5">修改商品</h2>
+<form action="/products/{{product._id}}/edit" method="POST">
   <div class="container mt-3" style="background-color: lightgray; width:25%;border-radius:5%;display:table">
     <div class="row mt-3 d-flex justify-content-center">
       <div class="form-group mt-3" style="width: 80%;">
         <label for="name">商品名稱</label>
-        <input class="form-control" type="text" name="name" id="name">
+        <input class="form-control" type="text" name="name" id="name" value="{{product.name}}">
       </div>
     </div>
     <div class="row d-flex justify-content-center">
       <div class="form-group" style="width: 80%;">
         <label for="category">種類</label>
         <select name="category" id="category" class="form-control">
-          <option value="cake">Cake</option>
-          <option value="drink">Drink</option>
+          <option value="{{product.category}}">{{product.category}}</option>
+          <option value="Cake">Cake</option>
+          <option value="Drink">Drink</option>
         </select>
       </div>
     </div>
     <div class="row d-flex justify-content-center">
       <div class="form-group" style="width: 80%;">
         <label for="url">商品圖片</label>
-        <input class="form-control" type="text" name="url" id="url">
+        <input class="form-control" type="text" name="url" id="url" value="{{product.url}}">
       </div>
     </div>
     <div class="row d-flex justify-content-center">
       <div class="form-group" style="width: 80%;">
-        <label for="price">價錢</label>
-        <input class="form-control" type="number" name="price" id="price">
+        <label for="amount">價錢</label>
+        <input class="form-control" type="number" name="amount" id="amount" value="{{product.amount}}">
       </div>
     </div>
     <div class="d-flex justify-content-center mt-2 mb-3">

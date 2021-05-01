@@ -24,19 +24,23 @@ app.use(express.static('public'))
 
 app.get('/', (req, res) => {
   const cake = Product.aggregate([
-    { $match : {category: "cake"}},
+    { $match : {category: "Cake"}},
     { $project: {
         name: 1,
-        amount: 1
+        amount: 1,
+        category: 1,
+        url: 1
       }
     }
   ])
 
   const drink = Product.aggregate([
-    { $match : {category: "drink"}},
+    { $match : {category: "Drink"}},
     { $project: {
         name: 1, 
-        amount: 1
+        amount: 1,
+        category: 1,
+        url: 1
       }
     }
   ])
@@ -66,6 +70,28 @@ app.post('/new', (req, res) => {
 app.post('/products/:id/delete', (req, res) => {
   return Product.findById(req.params.id)
     .then(item => item.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
+app.get('/products/:id/edit', (req, res) => {
+  Product.findById(req.params.id)
+    .lean()
+    .then(product => res.render('edit', {product: product}))
+    .catch(error => console.log(error))
+})
+
+app.post('/products/:id/edit', (req, res) => {
+  const id = req.params.id
+  let {name, category, amount, url} = req.body
+  return Product.findById(id)
+    .then(product => {
+      product.name = name,
+      product.category = category,
+      product.amount = amount,
+      product.url = url
+      return product.save()
+    })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
