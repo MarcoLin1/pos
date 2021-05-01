@@ -63,6 +63,13 @@ app.post('/new', (req, res) => {
     .catch(error => console.log(error))
 })
 
+app.post('/products/:id/delete', (req, res) => {
+  return Product.findById(req.params.id)
+    .then(item => item.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
 app.listen(port, () => {
   console.log(`App is running on http://localhost:${port}`)
 })
