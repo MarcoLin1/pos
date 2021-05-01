@@ -61,7 +61,8 @@ app.post('/new', (req, res) => {
   return Product.create({
     name: req.body.name,
     category: req.body.category,
-    amount: req.body.price
+    amount: req.body.price,
+    url : req.body.url
   })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
