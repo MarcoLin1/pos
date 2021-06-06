@@ -13,6 +13,11 @@
   color: #ffffff;
 }
 
+.btn-group .btn-outline-dark:not(:disabled):not(.disabled).active {
+  background-color: rgb(78 111 117);
+  color: #ffffff;
+}
+
 .addBtn {
   display: flex;
   justify-content: flex-end;
@@ -70,6 +75,7 @@
 .editPageContainer, .newPageContainer {
   border-radius: 20px;
   box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  margin-bottom: 30px;
 }
 
 .editTitle {

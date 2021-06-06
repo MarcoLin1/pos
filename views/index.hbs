@@ -31,8 +31,8 @@
       <div class="card-body"
         style="display:flex;align-items:center;justify-content:space-around;padding:2px 8px 8px 8px;">
         <div class="btn-group btn-group-toggle" data-id="{{this._id}}">
-          <label class="btn productLabel" style="border: none;width:120%;"><input type="radio" name="product"
-              value="{{this.name}}" data-id="{{this._id}}">{{this.name}}</label>
+          <label class="btn btn-outline-dark productLabel" style="border: none;width:120%;"><input type="radio" name="product"
+              value="{{this.name}}" data-id="{{this._id}}" class="productCheckbox">{{this.name}}</label>
         </div>
         <span class="text-center">${{this.amount}}</span>
       </div>
@@ -63,8 +63,8 @@
       <div class="card-body"
         style="display:flex;align-items:center;justify-content:space-around;padding:2px 8px 8px 8px;">
         <div class="btn-group btn-group-toggle" data-id="{{this._id}}">
-          <label class="btn productLabel" style="border: none;width:120%;"><input type="radio" name="product"
-              value="{{this.name}}" data-id="{{this._id}}">{{this.name}}</label>
+          <label class="btn btn-outline-dark productLabel" style="border: none;width:120%;"><input type="radio" name="product"
+              value="{{this.name}}" data-id="{{this._id}}" class="productCheckbox">{{this.name}}</label>
         </div>
         <span class="text-center">$ {{this.amount}}</span>
       </div>
@@ -124,17 +124,6 @@
       </thead>
 
       <tbody id="showList">
-        {{!-- <tr style="text-align: center;">
-          <td><input type="checkbox" name="item" id="item" style="width: 20px; height:20px;"></td>
-          <td class="checkName">{{orderCakeName}}</td>
-          <td class="checkNumbers">
-            <i class="fa fa-plus-circle up fa-lg"></i>
-            <i class="fa fa-minus-circle down fa-lg"></i>
-          </td>
-          <td class="checkTotal">{{this.name}}</td>
-          <td class="checkAmount">${{orderAmount}}</td>
-          <td class="checkTable">4</td>
-        </tr> --}}
       </tbody>
 
     </table>
@@ -267,22 +256,4 @@
   POS.prototype.clearOrder = function (target) {
     target.querySelectorAll('.cartItem').forEach(item => item.remove())
   }
-
-
-
 </script>
-
-{{!-- // 增修數量功能
-if (event.target.matches('.fa-plus-circle')) {
-let plusNumber = Number(event.target.parentElement.nextElementSibling.innerText) + 1
-let total = Number(event.target.parentElement.nextElementSibling.nextElementSibling.innerText) * plusNumber
-
-return event.target.parentElement.nextElementSibling.innerText = plusNumber
-
-} else if (event.target.matches('.fa-minus-circle')) {
-let minusNumber = Number(event.target.parentElement.nextElementSibling.innerText) - 1
-if (minusNumber <= 0) { return } else { return event.target.parentElement.nextElementSibling.innerText=minusNumber } }
-  --}} {{!-- <td class="checkNumbers">
-  <i class="fa fa-plus-circle up fa-lg"></i>
-  <i class="fa fa-minus-circle down fa-lg"></i>
-  </td> --}}
