@@ -1,16 +1,16 @@
-<h2 class="text-center mt-5">修改商品</h2>
+<h2 class="text-center mt-5 editTitle">修改商品</h2>
 <form action="/products/{{product._id}}/edit" method="POST">
-  <div class="container mt-3" style="background-color: lightgray; width:25%;border-radius:5%;display:table">
+  <div class="container editPageContainer mt-3" style="width:25%;display:table">
     <div class="row mt-3 d-flex justify-content-center">
       <div class="form-group mt-3" style="width: 80%;">
         <label for="name">商品名稱</label>
-        <input class="form-control" type="text" name="name" id="name" value="{{product.name}}">
+        <input class="form-control editPageInput" type="text" name="name" id="name" value="{{product.name}}">
       </div>
     </div>
     <div class="row d-flex justify-content-center">
       <div class="form-group" style="width: 80%;">
         <label for="category">種類</label>
-        <select name="category" id="category" class="form-control">
+        <select name="category" id="category" class="form-control editPageInput">
           <option value="{{product.category}}">{{product.category}}</option>
           <option value="Cake">Cake</option>
           <option value="Drink">Drink</option>
@@ -20,17 +20,17 @@
     <div class="row d-flex justify-content-center">
       <div class="form-group" style="width: 80%;">
         <label for="url">商品圖片</label>
-        <input class="form-control" type="text" name="url" id="url" value="{{product.url}}">
+        <input class="form-control editPageInput" type="text" name="url" id="url" value="{{product.url}}">
       </div>
     </div>
     <div class="row d-flex justify-content-center">
       <div class="form-group" style="width: 80%;">
         <label for="amount">價錢</label>
-        <input class="form-control" type="number" name="amount" id="amount" value="{{product.amount}}">
+        <input class="form-control editPageInput" type="number" name="amount" id="amount" value="{{product.amount}}">
       </div>
     </div>
     <div class="d-flex justify-content-center mt-2 mb-3">
-      <button type="submit" class="btn btn-outline-dark">儲存</button>
+      <button type="submit" class="btn editPageBtn" style="width: 85%; border:none;background-color:rgb(25, 87, 63); color:white;">儲存</button>
     </div>
   </div>
 </form>

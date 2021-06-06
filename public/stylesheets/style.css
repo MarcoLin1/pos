@@ -3,26 +3,102 @@
   justify-content: center;
 }
 
+.btn-group {
+  border: 1px solid rgba(189, 189, 202, 0.753);
+  border-radius: 1.078em;
+}
+
+.btn-group:hover .productLabel {
+  background-color: rgb(78 111 117);
+  color: #ffffff;
+}
+
 .addBtn {
   display: flex;
   justify-content: flex-end;
 }
 
-h2 {
-  color: darkblue;
+.addForm:hover {
+  background-color: #f0ad4e;
+  border-radius: 10px;
+  color: #ffffff;
 }
 
-[data-pos="delete-product"] {
-  display: inline-block;
-  text-align: center;
-  color: #999;
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
-  font-size: 20px;
+.addForm:hover .fa-plus-square {
+  color: #ffffff;
+}
+
+.card-img-top {
+  margin-bottom: 5px;
+}
+
+.editForm {
+  margin-right: 5px;
+}
+
+.deleteForm {
+  margin-right: 5px;
+}
+
+.editBtn {
+  width: 30px;
+  height: 30px;
+}
+
+.editBtn:hover {
+  background-color: rgb(15, 66, 38);
+}
+
+.editBtn:hover .fa-edit {
+  color: #ffffff;
+}
+
+.deleteBtn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+}
+
+.deleteBtn:hover {
+  background-color: rgb(114, 14, 11);
+}
+
+.deleteBtn:hover .fa-trash-alt {
+  color: #ffffff;
+}
+
+.editPageContainer, .newPageContainer {
+  border-radius: 20px;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
+
+.editTitle {
   line-height: 1;
+  font-weight: 800;
+  font-size: 2rem;
+  color: rgb(25, 87, 63);
 }
 
-[data-pos="delete-product"]:hover {
-  color: #333;
+.form-group label {
+  font-weight: 700;
+}
+
+.form-group .editPageInput,
+.form-group .newPageInput {
+  border-radius: 50px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+  padding: 10px;
+  font-size: 14px;
+  padding-left: 20px;
+  background: #ecf0f3;
+  height: 50px;
+  margin-bottom: 5px;
+}
+
+.editPageBtn, .newPageBtn {
+  box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white
+}
+
+.editPageBtn {
+  background:rgb(25, 87, 63);
 }
