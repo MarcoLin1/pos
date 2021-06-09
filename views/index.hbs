@@ -1,259 +1,154 @@
-<div class="container">
-  <div class="row mt-5 title">
-    <h2>iPos Plus+</h2>
-  </div>
-  <div class="row addBtn">
-    <form action="/products/new" method="get" class="addForm">
-      <button type="submit" class="btn addBtn" style="border-radius: 10px; border:1px solid rgba(189, 189, 202, 0.753);">
-        <i class="fas fa-plus-square fa-lg"></i>
-      </button>
-    </form>
-  </div>
-  <div class="row">
-    <h4>蛋糕</h4>
-  </div>
-  <div class="row mt-3 col-12" id="menu" data-toggle="buttons">
-    {{#each cakeItem}}
-    <div class="card mr-3 mb-3" style="width: 15rem; border-radius:5px;background:#ecf0f3;">
-      <img src="{{this.url}}" class="card-img-top" alt="cake" style="display:block;max-height:90%; border-radius:5px">
-      <div style="display: flex;justify-content:flex-end;">
-        <form action="/products/{{this._id}}/edit" method="get" class="editForm">
-          <button type="submit" class="btn editBtn" style="display: flex; justify-content:center; align-items:center; border:1px solid rgba(189, 189, 202, 0.753);">
-            <i class="fas fa-edit"></i>
-          </button>
-        </form>
-        <form action="/products/{{this._id}}/delete" method="POST" class="deleteForm">
-          <button type="submit" class="btn deleteBtn" style="display: flex; justify-content:center; align-items:center;border:1px solid rgba(189, 189, 202, 0.753)">
-            <i class="fas fa-trash-alt"></i>
-          </button>
-        </form>
-      </div>
-      <div class="card-body"
-        style="display:flex;align-items:center;justify-content:space-around;padding:2px 8px 8px 8px;">
-        <div class="btn-group btn-group-toggle" data-id="{{this._id}}">
-          <label class="btn btn-outline-dark productLabel" style="border: none;width:120%;"><input type="radio" name="product"
-              value="{{this.name}}" data-id="{{this._id}}" class="productCheckbox">{{this.name}}</label>
-        </div>
-        <span class="text-center">${{this.amount}}</span>
-      </div>
+<div class="posContainer">
+  <div class="container productsContainer">
+    <div class="row mt-5 title-wrapper">
+      <h2 class="title">iPos Plus+</h2>
     </div>
-    {{/each}}
-  </div>
-
-  <div class="row mt-3">
-    <h4>飲品</h4>
-  </div>
-  <div class="row mt-3 col-12" data-toggle="buttons">
-    {{#each drinkItem}}
-    <div class="card mr-3 mb-3" style="width: 15rem; border-radius:5px;background:#ecf0f3">
-      <img src="{{this.url}}" class="card-img-top" alt="cake" style="display:block;max-height:90%;border-radius:5px;">
-      <div style="display: flex;justify-content:flex-end;">
-        <form action="/products/{{this._id}}/edit" method="get" class="editForm">
-          <button type="submit" class="btn editBtn" style="display: flex; justify-content:center; align-items:center;border:1px solid rgba(189, 189, 202, 0.753)">
-            <i class="fas fa-edit"></i>
-          </button>
-        </form>
-        <form action="/products/{{this._id}}/delete" method="POST" class="deleteForm">
-          <button type="submit" class="btn deleteBtn" style="display: flex; justify-content:center; align-items:center;border:1px solid rgba(189, 189, 202, 0.753)">
-            <i class="fas fa-trash-alt"></i>
-          </button>
-        </form>
-      </div>
-
-      <div class="card-body"
-        style="display:flex;align-items:center;justify-content:space-around;padding:2px 8px 8px 8px;">
-        <div class="btn-group btn-group-toggle" data-id="{{this._id}}">
-          <label class="btn btn-outline-dark productLabel" style="border: none;width:120%;"><input type="radio" name="product"
-              value="{{this.name}}" data-id="{{this._id}}" class="productCheckbox">{{this.name}}</label>
-        </div>
-        <span class="text-center">$ {{this.amount}}</span>
-      </div>
+    <div class="row addBtn">
+      <form action="/products/new" method="get" class="addForm">
+        <button type="submit" class="btn addBtn"
+          style="border-radius: 10px; border:1px solid rgba(189, 189, 202, 0.753);">
+          <i class="fas fa-plus-square fa-lg"></i>
+        </button>
+      </form>
     </div>
-    {{/each}}
-  </div>
-</div>
+    <div class="row">
+      <h4>蛋糕</h4>
+    </div>
+    <div class="row mt-3 col-12" id="cakeMenu" data-toggle="buttons">
+      {{#each cakeItem}}
+      <div class="card mr-3 mb-3" style="width: 15rem; border-radius:10px;background:#ecf0f3;">
+        <img src="{{this.url}}" class="card-img-top" alt="cake"
+          style="display:block;max-height:90%; border-radius:10px" />
+        <div style="display: flex;justify-content:flex-end;">
+          <form action="/products/{{this._id}}/edit" method="get" class="editForm">
+            <button type="submit" class="btn editBtn"
+              style="display: flex; justify-content:center; align-items:center; border:1px solid rgba(189, 189, 202, 0.753);">
+              <i class="fas fa-edit"></i>
+            </button>
+          </form>
+          <form action="/products/{{this._id}}/delete" method="POST" class="deleteForm">
+            <button type="submit" class="btn deleteBtn"
+              style="display: flex; justify-content:center; align-items:center;border:1px solid rgba(189, 189, 202, 0.753)">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </form>
+        </div>
+        <div class="card-body"
+          style="display:flex;align-items:center;justify-content:space-around;padding:2px 8px 8px 8px;">
+          <div class="btn-group btn-group-toggle" data-id="{{this._id}}">
+            <label class="btn btn-outline-dark productLabel" style="border: none;width:120%;"><input type="radio" name="productCheckbox" value="{{this.amount}}" class="productCheckbox" id="productCheckbox" />{{this.name}}</label>    
+          </div>
+          <span class="text-center">${{this.amount}}</span>
 
-<div class="container" style="display:flex;">
-  <div class="row">
-    <h4 class="mt-2">桌次</h4>
-    <section class="table mt-3">
-      <div class="btn-group-toggle tableButtons" data-toggle="buttons">
-        <label class="btn btn-outline-secondary mr-1 tableNumbers"><input type="radio" name="table" value="1"> 1</label>
-        <label class="btn btn-outline-secondary mr-1 tableNumbers"><input type="radio" name="table" value="2"> 2</label>
-        <label class="btn btn-outline-secondary mr-1 tableNumbers"><input type="radio" name="table" value="3"> 3</label>
-        <label class="btn btn-outline-secondary mr-1 tableNumbers"><input type="radio" name="table" value="4"> 4</label>
-        <label class="btn btn-outline-secondary mr-1 tableNumbers"><input type="radio" name="table" value="5"> 5</label>
-        <label class="btn btn-outline-secondary mr-1 tableNumbers"><input type="radio" name="table" value="6"> 6</label>
+        </div>
       </div>
-    </section>
-  </div>
-  <div class="row">
-    <h4 class="mt-2">數量</h4>
-    <section class="table mt-3">
-      <div class="btn-group-toggle quantityButtons" data-toggle="buttons">
-        <label class="btn btn-outline-info mr-1 quantityNumbers"><input type="radio" name="quantity" value="1">
-          1</label>
-        <label class="btn btn-outline-info mr-1 quantityNumbers"><input type="radio" name="quantity" value="2">
-          2</label>
-        <label class="btn btn-outline-info mr-1 quantityNumbers"><input type="radio" name="quantity" value="3">
-          3</label>
-        <label class="btn btn-outline-info mr-1 quantityNumbers"><input type="radio" name="quantity" value="4">
-          4</label>
-        <label class="btn btn-outline-info mr-1 quantityNumbers"><input type="radio" name="quantity" value="5">
-          5</label>
-        <label class="btn btn-outline-info mr-1 quantityNumbers"><input type="radio" name="quantity" value="6">
-          6</label>
+      {{/each}}
+    </div>
+  
+    <div class="row mt-3">
+      <h4>飲品</h4>
+    </div>
+    <div class="row mt-3 col-12" id="drinkMenu" data-toggle="buttons">
+      {{#each drinkItem}}
+      <div class="card mr-3 mb-3" style="width: 15rem; border-radius:10px;background:#ecf0f3">
+        <img src="{{this.url}}" class="card-img-top" alt="cake"
+          style="display:block;max-height:90%;border-radius:10px;" />
+        <div style="display: flex;justify-content:flex-end;">
+          <form action="/products/{{this._id}}/edit" method="get" class="editForm">
+            <button type="submit" class="btn editBtn"
+              style="display: flex; justify-content:center; align-items:center;border:1px solid rgba(189, 189, 202, 0.753)">
+              <i class="fas fa-edit"></i>
+            </button>
+          </form>
+          <form action="/products/{{this._id}}/delete" method="POST" class="deleteForm">
+            <button type="submit" class="btn deleteBtn"
+              style="display: flex; justify-content:center; align-items:center;border:1px solid rgba(189, 189, 202, 0.753)">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </form>
+        </div>
+  
+        <div class="card-body"
+          style="display:flex;align-items:center;justify-content:space-around;padding:2px 8px 8px 8px;">
+          <div class="btn-group btn-group-toggle" data-id="{{this._id}}">
+            <label class="btn btn-outline-dark productLabel" style="border: none;width:120%;"><input type="radio" name="product" value="{{this.amount}}" data-id="{{this._id}}" class="productCheckbox" />{{this.name}}</label>
+
+          </div>
+          <span class="text-center">$ {{this.amount}}</span>
+        </div>
       </div>
-    </section>
+      {{/each}}
+    </div>
   </div>
-</div>
-
-<div class="container">
-  <div class="row mt-4">
-    <h4 class="detail">消費明細</h4>
-    <table class="table mt-3">
-      <thead>
-        <tr class="list" style="text-align: center;">
-          <th class="headCheckbox">Check</th>
-          <th class="headName">品名</th>
-          <th class="headNumbers">數量</th>
-          <th class="headAmount">金額</th>
-          <th class="headTable">桌次</th>
-          <th class="headDelete">刪除</th>
-        </tr>
-      </thead>
-
-      <tbody id="showList">
-      </tbody>
-
-    </table>
+  
+  <div class="container tableContainer" style="display:flex;">
+    <div class="row tableNums" data-toggle="buttons">
+      <h4 class="mt-2">桌次</h4>
+      <section class="table mt-3">
+        <div class="btn-group-toggle tableButtons">
+          <label class="btn btn-outline-secondary mr-1 tableNumber" style="border-radius: 10px;"><input class="tableNum" type="radio" name="table" value="1"/>
+            1</label>
+          <label class="btn btn-outline-secondary mr-1 tableNumber" style="border-radius: 10px;"><input class="tableNum" type="radio" name="table" value="2" />
+            2</label>
+          <label class="btn btn-outline-secondary mr-1 tableNumber" style="border-radius: 10px;"><input class="tableNum" type="radio" name="table" value="3" />
+            3</label>
+          <label class="btn btn-outline-secondary mr-1 tableNumber" style="border-radius: 10px;"><input class="tableNum" type="radio" name="table" value="4" />
+            4</label>
+          <label class="btn btn-outline-secondary mr-1 tableNumber" style="border-radius: 10px;"><input class="tableNum" type="radio" name="table" value="5" />
+            5</label>
+          <label class="btn btn-outline-secondary mr-1 tableNumber" style="border-radius: 10px;"><input class="tableNum" type="radio" name="table" value="6" />
+            6</label>
+        </div>
+      </section>
+    </div>
+    <div class="row" data-toggle="buttons">
+      <h4 class="mt-2">數量</h4>
+      <section class="table mt-3">
+        <div class="btn-group-toggle quantityButtons">
+          <label class="btn btn-outline-info mr-1 quantityNumbers" style="border-radius: 10px;"><input class="quantity" type="radio" name="quantity" value="1" />
+            1</label>
+          <label class="btn btn-outline-info mr-1 quantityNumbers" style="border-radius: 10px;"><input class="quantity" type="radio" name="quantity" value="2" />
+            2</label>
+          <label class="btn btn-outline-info mr-1 quantityNumbers" style="border-radius: 10px;"><input class="quantity" type="radio" name="quantity" value="3" />
+            3</label>
+          <label class="btn btn-outline-info mr-1 quantityNumbers" style="border-radius: 10px;"><input class="quantity" type="radio" name="quantity" value="4" />
+            4</label>
+          <label class="btn btn-outline-info mr-1 quantityNumbers" style="border-radius: 10px;"><input class="quantity" type="radio" name="quantity" value="5" />
+            5</label>
+          <label class="btn btn-outline-info mr-1 quantityNumbers" style="border-radius: 10px;"><input class="quantity" type="radio" name="quantity" value="6" />
+            6</label>
+        </div>
+      </section>
+    </div>
   </div>
-  {{!-- <form action="/products/add" method="post"> --}}
+  
+  <div class="container calculateContainer">
+    <div class="row mt-4">
+      <h4 class="detail">消費明細</h4>
+      <table class="table mt-3">
+        <thead>
+          <tr class="list" style="text-align: center;">
+            <th class="headName">品名</th>
+            <th class="headNumbers">數量</th>
+            <th class="headAmount">金額</th>
+            <th class="headTable">桌次</th>
+            <th class="headDelete">刪除</th>
+          </tr>
+        </thead>
+  
+        <tbody id="showList">
+        </tbody>
+  
+      </table>
+    </div>
     <div style="display: flex;justify-content:space-between">
-      <button type="submit" class="btn btn-outline-warning" data-pos="addProductBtn">Add</button>
+      <button type="submit" class="btn btn-outline-warning add_btn" data-pos="addProductBtn">Add</button>
       <h3 style="color: darkred;">總金額:$<span class="totalAmount">--</span></h3>
     </div>
-    {{!--
-  </form> --}}
-  {{!-- <form action="/products/checkout" method="get"> --}}
     <div style="display: flex;justify-content:flex-end;margin-bottom:20px;">
       <button type="submit" class="btn btn-outline-danger mt-3" id="checkout">Check</button>
     </div>
-    {{!--
-  </form> --}}
+  </div>
 </div>
 
-<script>
-  function Order(name, table, quantity) {
-    this.name = name;
-    this.table = table;
-    this.quantity = quantity
-  }
 
-  Order.prototype.price = function () {
-    switch (this.name) {
-      case "鐵觀音巴斯克":
-        return 180
-      case "手沖咖啡":
-        return 170
-      case "綜合水果戚風":
-        return 160
-      case "焦糖烏龍戚風":
-      case "紅茶香蕉巧克力戚風":
-        return 150;
-      case "紅豆抹茶捲":
-      case "蜜瓜焙茶戚風":
-      case "芝麻鳳梨四季春戚風":
-        return 140;
-      case "柚香氣泡飲":
-      case "莓果氣泡飲":
-        return 130
-      case "百香檸檬糖霜蛋糕":
-      case "鳳梨冰茶":
-        return 120
-      case "紅茶":
-      case "綠茶":
-        return 110
-      default:
-        alert('no this item')
-    }
-  }
-
-  function POS() { }
-  let newPos = new POS()
-
-  let totalAmount = document.querySelector('.totalAmount')
-  const addProductBtn = document.querySelector('[data-pos="addProductBtn"]')
-  addProductBtn.addEventListener('click', function controller() {
-    const name = newPos.getValue("product")
-    const table = newPos.getValue("table")
-    const quantity = newPos.getValue("quantity")
-    if (!name || !quantity || !table) {
-      alert('Please make sure your shopping list detailed')
-      return
-    }
-
-    let order = new Order(name, table, quantity)
-    newPos.controller(order)
-    totalAmount.innerHTML = newPos.checkout()
-  })
-
-
-  POS.prototype.getValue = function (inputName) {
-    let selectedOption = ''
-    document.querySelectorAll(`input[name="${inputName}"]`).forEach(function (item) {
-      if (item.checked) {
-        selectedOption = item.value
-      }
-    })
-    return selectedOption
-  }
-
-  const showList = document.querySelector('#showList')
-  POS.prototype.controller = function (item) {
-    let orderHTML =
-      `
-        <tr class="cartItem" style="text-align: center;">
-          <td><input type="checkbox" name="item" id="item" style="width: 20px; height:20px;"></td>
-          <td class="checkName">${item.name}</td>
-
-          <td class="checkTotal">${item.quantity}</td>
-          <td class="checkAmount" data-price>${item.price() * item.quantity}</td>
-          <td class="checkTable">${item.table}</td>
-          <td class="checkDelete btn"><i class="fas fa-trash-alt" data-delete="delete"></i></td>
-        </tr>
-    `
-    showList.insertAdjacentHTML('beforeend', orderHTML)
-  }
-
-  showList.addEventListener('click', function (event) {
-    // 刪除
-    let isDeleteButton = event.target.matches('[data-delete="delete"]')
-    if (isDeleteButton) {
-      newPos.deleteOrder(event.target.parentElement.parentElement)
-      totalAmount.innerHTML = newPos.checkout()
-    }
-  })
-
-  POS.prototype.deleteOrder = function (target) {
-    target.remove()
-  }
-
-  let checkoutBtn = document.querySelector('#checkout')
-  // 結帳
-  checkoutBtn.addEventListener('click', function (event) {
-    alert(`total amount: ${newPos.checkout()}`)
-    newPos.clearOrder(showList)
-    totalAmount.innerHTML = newPos.checkout()
-  })
-
-  POS.prototype.checkout = function () {
-    let total = 0
-    document.querySelectorAll('.checkAmount').forEach(item => total += Number(item.innerText))
-    return total
-  }
-
-  POS.prototype.clearOrder = function (target) {
-    target.querySelectorAll('.cartItem').forEach(item => item.remove())
-  }
-</script>

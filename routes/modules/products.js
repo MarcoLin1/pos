@@ -10,7 +10,7 @@ router.post('/new', (req, res) => {
   return Product.create({
     name: req.body.name,
     category: req.body.category,
-    amount: req.body.price,
+    amount: req.body.amount,
     url : req.body.url
   })
     .then(() => res.redirect('/'))
@@ -45,6 +45,5 @@ router.post('/:id/edit', (req, res) => {
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
-
 
 module.exports = router
