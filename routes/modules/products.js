@@ -46,4 +46,8 @@ router.post('/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
+router.get('/revenue', (req, res) => {
+  res.render('revenue')
+})
+
 module.exports = router

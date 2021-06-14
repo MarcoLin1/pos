@@ -71,7 +71,7 @@
         <div class="card-body"
           style="display:flex;align-items:center;justify-content:space-around;padding:2px 8px 8px 8px;">
           <div class="btn-group btn-group-toggle" data-id="{{this._id}}">
-            <label class="btn btn-outline-dark productLabel" style="border: none;width:120%;"><input type="radio" name="product" value="{{this.amount}}" data-id="{{this._id}}" class="productCheckbox" />{{this.name}}</label>
+            <label class="btn btn-outline-dark productLabel" style="border: none;width:120%;"><input type="radio" name="productCheckbox" value="{{this.amount}}" data-id="{{this._id}}" class="productCheckbox" />{{this.name}}</label>
 
           </div>
           <span class="text-center">$ {{this.amount}}</span>
@@ -149,6 +149,32 @@
       <button type="submit" class="btn btn-outline-danger mt-3" id="checkout">Check</button>
     </div>
   </div>
+
+  <div class="container orderListContainer">
+    <div class="row mt-4">
+      <h4 class="detail orderListDetail">未出餐明細</h4>
+      <table class="table mt-3">
+        <thead>
+          <tr class="list" style="text-align: center;">
+            <th class="orderHeadCheckbox">Check</th>
+            <th class="orderHeadName">品名</th>
+            <th class="orderHeadNumbers">數量</th>
+            <th class="orderHeadAmount">金額</th>
+            <th class="orderHeadTable">桌次</th>
+            <th class="orderHeadDelete">刪除</th>
+          </tr>
+        </thead>
+        <tbody id="showOrderList">
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <form action="/products/revenue">
+    <div style="display: flex;justify-content:center;margin-bottom:20px;">
+      <button type="submit" class="btn btn-outline-success mt-3" id="revenue">營收明細</button>
+    </div>
+  </form>
 </div>
 
-
+<script src="/javascript/main.js"></script>

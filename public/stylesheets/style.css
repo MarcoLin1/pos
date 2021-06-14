@@ -126,3 +126,37 @@
 .editPageBtn {
   background: rgb(25, 87, 63);
 }
+
+.revenueDetail, .revenueTable {
+  width: 100%;
+}
+
+.revenueTable {
+  font-size: 1.2rem;
+}
+
+.refreshContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.revenueList {
+  border-bottom: 2px solid rgba(0,0,0,.1);
+  border-top: 2px solid rgba(0,0,0,.1);
+}
+
+.checkboxStyle {
+  color: rgb(184, 184, 184);
+  font-style: italic;
+  text-decoration: line-through;
+}
+
+.revenueList {
+  background-color: #f0ad4e;
+}
+
+#revenueShowList tr:nth-child(even) {
+  background-color: #ecb36359;
+}
