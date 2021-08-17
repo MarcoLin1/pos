@@ -8,7 +8,7 @@ Continue update...
 2. Click trash icon that can delete item
 3. Click check button to calculate total amount
 
-![image](https://github.com/MarcoLin1/pos/blob/master/firstPage.png)
+![image](https://github.com/MarcoLin1/pos/blob/master/mainPage.png)
 ![image](https://github.com/MarcoLin1/pos/blob/master/addProductPage.png)
 ![image](https://github.com/MarcoLin1/pos/blob/master/editProductPage.png)
 
