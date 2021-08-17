@@ -9,8 +9,8 @@ Continue update...
 3. Click check button to calculate total amount
 
 ![image](https://github.com/MarcoLin1/pos/blob/master/mainPage.png)
-![image](https://github.com/MarcoLin1/pos/blob/master/addProduct.png)
-![image](https://github.com/MarcoLin1/pos/blob/master/editProduct.png)
+![image](https://github.com/MarcoLin1/pos/blob/master/newProductPage.png)
+![image](https://github.com/MarcoLin1/pos/blob/master/editProductPage.png)
 
 # Installation
 
