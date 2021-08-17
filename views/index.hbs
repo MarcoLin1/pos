@@ -5,8 +5,8 @@
     </div>
     <div class="row addBtn">
       <form action="/products/new" method="get" class="addForm">
-        <button type="submit" class="btn addBtn"
-          style="border-radius: 10px; border:1px solid rgba(189, 189, 202, 0.753);">
+        <button type="submit" class="btn addBtn "
+          style="border-radius: 10px;">
           <i class="fas fa-plus-square fa-lg"></i>
         </button>
       </form>
@@ -22,20 +22,20 @@
         <div style="display: flex;justify-content:flex-end;">
           <form action="/products/{{this._id}}/edit" method="get" class="editForm">
             <button type="submit" class="btn editBtn"
-              style="display: flex; justify-content:center; align-items:center; border:1px solid rgba(189, 189, 202, 0.753);">
+              style="display: flex; justify-content:center; align-items:center; ">
               <i class="fas fa-edit"></i>
             </button>
           </form>
           <form action="/products/{{this._id}}/delete" method="POST" class="deleteForm">
             <button type="submit" class="btn deleteBtn"
-              style="display: flex; justify-content:center; align-items:center;border:1px solid rgba(189, 189, 202, 0.753)">
+              style="display: flex; justify-content:center; align-items:center;">
               <i class="fas fa-trash-alt"></i>
             </button>
           </form>
         </div>
         <div class="card-body"
           style="display:flex;align-items:center;justify-content:space-around;padding:2px 8px 8px 8px;">
-          <div class="btn-group btn-group-toggle" data-id="{{this._id}}">
+          <div class="btn-group btn-group-toggle product-name-button" data-id="{{this._id}}">
             <label class="btn btn-outline-dark productLabel" style="border: none;width:120%;"><input type="radio" name="productCheckbox" value="{{this.amount}}" class="productCheckbox" id="productCheckbox" />{{this.name}}</label>    
           </div>
           <span class="text-center">${{this.amount}}</span>
@@ -56,13 +56,13 @@
         <div style="display: flex;justify-content:flex-end;">
           <form action="/products/{{this._id}}/edit" method="get" class="editForm">
             <button type="submit" class="btn editBtn"
-              style="display: flex; justify-content:center; align-items:center;border:1px solid rgba(189, 189, 202, 0.753)">
+              style="display: flex; justify-content:center; align-items:center;">
               <i class="fas fa-edit"></i>
             </button>
           </form>
           <form action="/products/{{this._id}}/delete" method="POST" class="deleteForm">
             <button type="submit" class="btn deleteBtn"
-              style="display: flex; justify-content:center; align-items:center;border:1px solid rgba(189, 189, 202, 0.753)">
+              style="display: flex; justify-content:center; align-items:center;">
               <i class="fas fa-trash-alt"></i>
             </button>
           </form>
@@ -70,7 +70,7 @@
   
         <div class="card-body"
           style="display:flex;align-items:center;justify-content:space-around;padding:2px 8px 8px 8px;">
-          <div class="btn-group btn-group-toggle" data-id="{{this._id}}">
+          <div class="btn-group btn-group-toggle product-name-button" data-id="{{this._id}}">
             <label class="btn btn-outline-dark productLabel" style="border: none;width:120%;"><input type="radio" name="productCheckbox" value="{{this.amount}}" data-id="{{this._id}}" class="productCheckbox" />{{this.name}}</label>
 
           </div>

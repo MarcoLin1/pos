@@ -127,12 +127,18 @@
   background: rgb(25, 87, 63);
 }
 
+.revenue-row {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .revenueDetail, .revenueTable {
   width: 100%;
 }
 
 .revenueTable {
   font-size: 1.2rem;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
 }
 
 .refreshContainer {
@@ -154,9 +160,13 @@
 }
 
 .revenueList {
-  background-color: #f0ad4e;
+  background-color: #f0ac4ea3;
 }
 
 #revenueShowList tr:nth-child(even) {
   background-color: #ecb36359;
+}
+
+.product-name-button {
+  border: none;
 }
